@@ -57,6 +57,13 @@
             </li>
         </ul>
 
+            <!-- Inactive Users -->
+        <ul class="cd-navigation">
+            <li class="">
+                <a href="/pmis-challenge/proadmin/user/inactive"><i class="fa fa-file-text-o"></i> Inactive Users </a>
+        </li>
+        </ul>
+
         <!-- only for sbcpco-->
         @if(Auth::User()->implementing_office_id==410)
 

@@ -222,8 +222,16 @@ class UserController extends AdminBaseController {
         }
         $this->pro_data['user'] = $user;
         return view('admin.user.show', $this->pro_data);
+
+
     }
 
+    //creating a function to show inactive user
+    public function showUser()
+    {
+        
+        return view('admin.user.inactive')->with('message', 'inactive users');
+    }
     /**
      * Show the form for editing the specified resource.
      *
