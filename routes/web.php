@@ -216,6 +216,10 @@ Route::group(['prefix' => 'proadmin', 'middleware' => ['auth', 'user.status']], 
 });
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
+//A route to show inactive users which directs to a function
+//Route::get('/admin/user/inactive', [App\Http\Controllers\Admin\UserController::class, 'showUser']);
+Route::get('/admin/user/inactive', ['as' => 'user.inactive', 'uses' =>  'Admin\UserController@showUser']);
+
 Route::get('/maintenance/change_to_database', ['uses' => 'HomeController@changeToDatabase']);
 Route::get('/auto_script', ['as' => 'auto_script', 'uses' => 'Admin\AutoScriptController@index']);
 //Route::get('/testsms', ['as' => 'testsms', 'uses' => 'Admin\AutoScriptController@testsms']);

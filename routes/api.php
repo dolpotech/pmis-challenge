@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Request;
+use App\MaterialsUsed;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -10,12 +11,17 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-/*Route::get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');*/
+})->middleware('auth:api');
 
-/*Route::group(['middleware' => ['auth'],'prefix'=>'auth'], function(){
-    Route::post('chat/{project_id}', function(){
-        dd(1);
-    });
-});*/
+// Route::group(['middleware' => ['auth'],'prefix'=>'auth'], function(){
+//     Route::post('chat/{project_id}', function(){
+//         dd(1);
+//     });
+// });
+
+Route::get( '/materialsUsed', function()
+{
+    return MaterialsUsed::all();
+});

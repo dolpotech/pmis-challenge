@@ -43,6 +43,7 @@
                                             <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-filter"></span>  <span class="hidden-xs hidden-sm">Filter!</span></button>
                                         </span>
                                         </div><!-- /input-group -->
+                                      
                                     </div>
                                 </div>
                             {!! Form::close() !!}
@@ -51,7 +52,11 @@
                                 to {{ $users->lastItem() }} of {{ $users->total() }} entries </p>
 
                         </div>
-
+                        <!-- showing inactive users -->
+                        <div class="col-md-3 col-lg-3">                                     
+                             <a href="/pmis-challenge/proadmin/user/inactive" class="btn btn-warning showToolTip pull-left">Inactive Users</a> 
+                                                   
+                         </div>
                         <div class="col-md-4 col-lg-4">
                             {!! massAction('col-md-9 col-lg-9 col-sm-9 col-xs-9 pull-left','local','User') !!}
                             <a href="{{route('user.index')}}?trashes=yes" class="btn btn-danger showToolTip pull-right" title="Trashes" role="button"><span class="glyphicon glyphicon-trash"></span> <span class="badge">{{$trashes_no}}</span></a>
@@ -124,10 +129,10 @@
                                             </td>
                                             <td>
                                                 <div class="index_image_thumb">
-                                                    @if($user->image !='' && $user->image != NULL && file_exists('public/images/users/thumbnail/thumbvtx'.$user->image))
-                                                        <img src="{{asset('public/images/users/thumbnail/thumbvtx'.$user->image)}}" alt="{{$user->image}}" title="{{$user->name}}" class="img-thumbnail" />
+                                                    @if($user->image !='' && $user->image != NULL && file_exists('public/admin/images/users/thumbnail/thumbvtx'.$user->image))
+                                                        <img src="{{asset('public/admin/images/users/thumbnail/thumbvtx'.$user->image)}}" alt="{{$user->image}}" title="{{$user->name}}" class="img-thumbnail" />
                                                     @else
-                                                        <img src="{{asset('public/images/no_image_thumb.png')}}" alt="no image" title="No Image!!" class="img-thumbnail" />
+                                                        <img src="{{asset('public/admin/images/no_image_thumb.png')}}" alt="no image" title="No Image!!" class="img-thumbnail" />
                                                     @endif
                                                 </div>
                                             </td>
